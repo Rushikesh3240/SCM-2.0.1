@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content,title,script)" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Base page</title>
+     <link th:href="@{output.css}" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- main content -->
+     
+   
+    <div class="p-4">
+        <ul>
+            <li>
+                <a th:href="@{/home}">Home</a>
+            </li>
+            <li>
+                <a th:href="@{/service}">Service</a>
+            </li>
+             <li>
+                <a th:href="@{/about}">About</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="p-4">
+         <section th:replace="${content}"></section>
+
+     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <th:block th:replace="${script}"></th:block>
+</body>
+
+</html>
