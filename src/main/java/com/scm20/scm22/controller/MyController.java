@@ -22,4 +22,21 @@ public class MyController {
         model.addAttribute("isLogin", true);
         return "about";
     }
+
+    @RequestMapping("/contact")
+    public String contact(){
+            System.out.println("npm run build:css");
+        return "contact";
+    }
+
+
+    @RequestMapping("/register")
+    public String register(){
+        return "register";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 }

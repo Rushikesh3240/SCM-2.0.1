@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="parent(content,title,script)" xmlns:th="https://www.thymeleaf.org">
+<html lang="en"  th:fragment="parent(content,title,script)" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:replace="${title}">Base page</title>
      <link th:href="@{output.css}" rel="stylesheet">
      <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+     <!-- font awesome link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body >
     <!-- main content -->
      
    
-    <div class="p-4">
-        <ul>
-            <li>
-                <a th:href="@{/home}">Home</a>
-            </li>
-            <li>
-                <a th:href="@{/service}">Service</a>
-            </li>
-             <li>
-                <a th:href="@{/about}">About</a>
-            </li>
-        </ul>
-    </div>
+    <div th:replace="navbar::navbar"></div>
     
     <div class="p-4">
          <section th:replace="${content}"></section>
