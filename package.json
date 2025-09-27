@@ -1,6 +1,26 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.13",
+    "@tailwindcss/cli": "^4.1.13"
+  },
+  "name": "scm22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
     "tailwindcss": "^4.1.13"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rushikesh3240/SCM-2.0.1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rushikesh3240/SCM-2.0.1/issues"
+  },
+  "homepage": "https://github.com/Rushikesh3240/SCM-2.0.1#readme"
 }
