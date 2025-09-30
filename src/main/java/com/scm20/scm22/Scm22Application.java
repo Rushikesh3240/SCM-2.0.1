@@ -9,5 +9,4 @@ public class Scm22Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Scm22Application.class, args);
 	}
-
 }
