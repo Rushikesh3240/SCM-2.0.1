@@ -17,6 +17,9 @@
                 <!-- card -->
                 <div class="block  p-6 border-t-[10px] border-blue-200 bg-white rounded-xl shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
+                    <!-- success message -->
+                     <div th:replace="message::messagebox"></div>
+
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Signup Here</h5>
                        <p class="font-normal text-gray-400 dark:text-gray-400">
                         Start Managing Contacts on Cloud...
@@ -41,6 +44,8 @@
                            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
                             dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                 placeholder="Enter Name" required />
+                                
+                                <p  class="text-red-500 px-1 py-2">Name is Required !!</p>
                          </div>
 
                          <!-- email -->

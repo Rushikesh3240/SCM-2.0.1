@@ -3,6 +3,7 @@ package com.scm20.scm22.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.scm20.scm22.entities.User;
 import com.scm20.scm22.forms.UserForms;
+import com.scm20.scm22.helper.Message;
+import com.scm20.scm22.helper.MessageType;
 import com.scm20.scm22.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class MyController {
@@ -61,24 +67,39 @@ public class MyController {
     // processing register
 
     @RequestMapping(value = "/do-register",method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute UserForms userForms){
+    public String processRegister(@Valid @ModelAttribute UserForms userForms,BindingResult bResult, HttpSession session){
         System.out.println("Processing register");
     
         //fetch form data
         //userform
 
+        //validate form data
+        if (bResult.hasErrors()) {
+            return "register";
+        }
+
         //user Service
-        User user=User.builder()
-            .name(userForms.getName())
-            .email(userForms.getEmail())
-            .about(userForms.getAbout())
-            .password(userForms.getPassword())
-            .phoneNumber(userForms.getPhoneNumber())
-            .profilePic("file:///C:/Users/rushi/Desktop/defaultProfile.jpg")
-            .build();
+        // User user=User.builder()
+        //     .name(userForms.getName())
+        //     .email(userForms.getEmail())
+        //     .about(userForms.getAbout())
+        //     .password(userForms.getPassword())
+        //     .phoneNumber(userForms.getPhoneNumber())
+        //     .profilePic("file:///C:/Users/rushi/Desktop/defaultProfile.jpg")
+        //     .build();
+
+        User user=new User();
+        user.setName(userForms.getName());
+        user.setEmail(userForms.getEmail());
+        user.setAbout(userForms.getAbout());
+        user.setPassword(userForms.getPassword());
+        user.setPhoneNumber(userForms.getPhoneNumber());
+        user.setProfilePic("file:///C:/Users/rushi/Desktop/defaultProfile.jpg");
 
             User savedUser=userService.saveUser(user);
             System.out.println(savedUser);
+            Message message=Message.builder().content("Registratoin Successful").type(MessageType.blue).build();
+            session.setAttribute("message", message);
         System.out.println(userForms);
         return "redirect:/register";
     }
