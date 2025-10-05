@@ -50,7 +50,7 @@ public class MyController {
     @GetMapping("/register")
     public String register(Model model){
         UserForms userForm=new UserForms();
-
+        
         //we can send data from backend
         // userForm.setName("Rushikesh");
         // userForm.setAbout("Hello im Rushikesh i am Billionare Youtuber ");
@@ -67,7 +67,7 @@ public class MyController {
     // processing register
 
     @RequestMapping(value = "/do-register",method = RequestMethod.POST)
-    public String processRegister(@Valid @ModelAttribute UserForms userForms,BindingResult bResult, HttpSession session){
+    public String processRegister(@Valid @ModelAttribute("userForm") UserForms userForms,BindingResult bResult, HttpSession session){
         System.out.println("Processing register");
     
         //fetch form data

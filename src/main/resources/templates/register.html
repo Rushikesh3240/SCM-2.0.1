@@ -29,7 +29,9 @@
                        <form data-th-action="@{'/do-register'}"
                         method="post"
                         data-th-object="${userForm}" 
-                        class="mt-5">
+                        class="mt-5"
+                        novalidate
+                        >
 
 
                         <div class="mb-3">
@@ -45,7 +47,10 @@
                             dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                 placeholder="Enter Name" required />
                                 
-                                <p  class="text-red-500 px-1 py-2">Name is Required !!</p>
+                                <p 
+                                data-th-if="${#fields.hasErrors('name')}"
+                                data-th-errors="*{name}"
+                                 class="text-red-500 px-1 py-2"></p>
                          </div>
 
                          <!-- email -->
@@ -61,6 +66,10 @@
                                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
                                 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                 placeholder="name@flowbite.com" required />
+                                <p 
+                                data-th-if="${#fields.hasErrors('email')}"
+                                data-th-errors="*{email}"
+                                 class="text-red-500 px-1 py-2"></p>
                           </div>
 
                           <!-- password -->
@@ -77,6 +86,10 @@
                                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
                                 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                 placeholder="Enter password" required />
+                                <p 
+                                data-th-if="${#fields.hasErrors('password')}"
+                                data-th-errors="*{password}"
+                                 class="text-red-500 px-1 py-2"></p>
                           </div>
 
                           <!-- phone -->
@@ -93,6 +106,10 @@
                                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
                                 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                 placeholder="Enter Contact" required />
+                                <p 
+                                data-th-if="${#fields.hasErrors('phoneNumber')}"
+                                data-th-errors="*{phoneNumber}"
+                                 class="text-red-500 px-1 py-2"></p>
                           </div>
 
                           <!-- about textarea -->
@@ -107,6 +124,10 @@
                                      rows="6" 
                                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                      placeholder="Write here..."></textarea>
+                                     <p 
+                                data-th-if="${#fields.hasErrors('about')}"
+                                data-th-errors="*{about}"
+                                 class="text-red-500 px-1 py-2"></p>
 
                           </div>
 

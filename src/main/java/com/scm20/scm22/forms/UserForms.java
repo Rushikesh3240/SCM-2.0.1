@@ -22,6 +22,7 @@ public class UserForms {
     @Size(min = 3,message = "Min 3 characters is Required")
     private String name;
 
+    @NotBlank(message = "Email is Required")
     @Email(message = "Invalid email address")
     private String email;
 
@@ -32,6 +33,7 @@ public class UserForms {
     @NotBlank(message = "About is Required")
     private String about;
 
+    @NotBlank(message = "Phone Number is Required")
     @Size(min = 9,max = 12,message = "Invalid Phone Number")
     private String phoneNumber;
 }
